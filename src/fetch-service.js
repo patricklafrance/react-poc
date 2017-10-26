@@ -45,28 +45,28 @@ export class FetchClient {
             url = `${url}?${this._convertParamsToUrlParameters(instructions.params)}`;
         }
 
-        // https://github.github.io/fetch/#options
-        // const data = await (await fetch(url, { method: "GET" })
-        //     .then(response => {
-        //         if (response.ok) {
-        //             return response.json();
-        //         } 
-        //         else {
-        //             // 4xx or 5xx and errors.
-        //             const error = new Error(response.statusText);
-        //             error.response = response;
+        https://github.github.io/fetch/#options
+        const data = await (await fetch(url, { method: "GET" })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } 
+                else {
+                    // 4xx or 5xx and errors.
+                    const error = new Error(response.statusText);
+                    error.response = response;
 
-        //             throw error;
-        //         }
-        //     })
-        //     .catch(() => {
-        //         throw new Error("Unknown network errors happened, bla bla et bla!");
-        //         // Network errors.
-        //     }));
+                    throw error;
+                }
+            })
+            .catch(() => {
+                throw new Error("Unknown network errors happened, bla bla et bla!");
+                // Network errors.
+            }));
 
-        // return data;
+        return data;
 
-        throw new Error("HA HA!");
+        // throw new Error("HA HA!");
     }
 
     _convertParamsToUrlParameters(params) {
